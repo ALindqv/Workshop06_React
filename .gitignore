@@ -1,0 +1,90 @@
+######################
+# General files
+######################
+
+# OS Files
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+#######################
+# Environment files
+######################
+
+# Environment variables
+.env
+.env*
+!.env.example
+backend/.env
+
+######################
+# Dependencies
+######################
+
+# Node dependencies
+node_modules/
+
+######################
+# Build Output
+######################
+
+# Frontend builds
+frontend/build/
+frontend/dist/
+
+# Backend builds
+backend/build/
+backend/dist/
+
+# General builds
+dist/
+
+######################
+# React / Vite / CRA
+######################
+
+# Vite cache
+.vite/
+
+# CRA cache
+.cache/
+
+######################
+# Testing
+######################
+
+# Coverage reports
+coverage/
+
+######################
+# TypeScript
+######################
+
+# TS Build info
+*.tsbuildinfo
+
+######################
+# IDE / Editor settings
+######################
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+######################
+# ESLint / Prettier caches
+######################
+
+.eslintcache
+
+#
+# Other
+#
+solution/
+
+TEACHING*

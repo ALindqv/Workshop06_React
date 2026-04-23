@@ -14,7 +14,16 @@ function HomePage() {
 
   useEffect(() => {
     // TODO (student): Replace this placeholder with real fetch logic.
-    setLoading(false)
+    //setLoading(false)
+    fetch("/api/posts")
+        .then((res) => {
+            if (!res.ok) throw new Error(`Server error: ${res.status}`)
+            return res.json();
+        })
+        .then((data) => {
+            console.log(data);
+            setPosts(data)
+        })
   }, [])
 
   if (loading) return <p className="status-msg">Loading posts…</p>
@@ -26,7 +35,7 @@ function HomePage() {
         <p className="eyebrow">Blog</p>
         <h1 className="page-title">All posts</h1>
         <p className="page-copy">
-          TODO: Implement fetching posts from <code>/api/posts</code>.
+          
         </p>
       </div>
 

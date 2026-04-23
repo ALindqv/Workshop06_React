@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const pagesRouter = require('./routes/pages');
+//const pagesRouter = require('./routes/pages');
 const postsRouter = require('./routes/posts');
 
 const app = express();
@@ -46,9 +46,10 @@ app.locals.publicDir = publicDir;
 app.use(express.json());
 app.use(express.static(publicDir));
 
-app.use('/', pagesRouter);
+//app.use('/', pagesRouter);
 app.use('/api/posts', postsRouter);
 
+/*
 app.use((req, res) => {
   res.status(404).sendFile(path.join(publicDir, '404.html'));
 });
@@ -56,7 +57,7 @@ app.use((req, res) => {
 app.use((error, req, res, next) => {
   console.error(error.stack);
   res.status(500).sendFile(path.join(publicDir, '500.html'));
-});
+}); */
 
 connectToDatabase().then(() => {
   app.listen(PORT, () => {

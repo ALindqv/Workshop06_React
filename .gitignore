@@ -20,7 +20,6 @@ pnpm-debug.log*
 .env
 .env*
 !.env.example
-backend/.env
 
 ######################
 # Dependencies
@@ -34,14 +33,15 @@ node_modules/
 ######################
 
 # Frontend builds
-frontend/build/
-frontend/dist/
+#frontend/build/
+#frontend/dist/
 
 # Backend builds
-backend/build/
-backend/dist/
+#backend/build/
+#backend/dist/
 
 # General builds
+build/
 dist/
 
 ######################

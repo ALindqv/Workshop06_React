@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PostForm from '../components/PostForm.jsx'
+import API_URL from '../../api/posts.js'
 //import { createPost } from '../api/requests.js'
 
 // TODO (student): Implement create flow (POST /api/posts).
@@ -19,7 +20,7 @@ function NewPostPage() {
         setSubmitting(true);
         setError("");
 
-        const response = await fetch("/api/posts", {
+        const response = await fetch(`${API_URL}/api/posts`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -34,7 +35,7 @@ function NewPostPage() {
         }
 
         const id = data._id || data.id;
-        navigate(`/posts/${id}`);
+        navigate(`${API_URL}/posts/${id}`);
     } catch (err) {
         setError(err.message)
     } finally {

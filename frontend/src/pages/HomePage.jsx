@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import PostCard from '../components/PostCard.jsx'
+import API_URL from '../../api/posts.js'
 
 // TODO (student): Fetch all posts from the backend and render them.
 // Suggested steps:
@@ -14,7 +15,7 @@ function HomePage() {
 
   useEffect(() => {
     // TODO (student): Replace this placeholder with real fetch logic.
-        fetch("/api/posts")
+        fetch(`${API_URL}/api/posts`)
         .then((res) => {
             if (!res.ok) throw new Error(`Server error: ${res.status}`)
             return res.json();

@@ -3,9 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-//Importing cors to allow frontend requests in deployed application
-const cors = require('cors');
-
 //const pagesRouter = require('./routes/pages');
 const postsRouter = require('./routes/posts');
 
@@ -44,8 +41,6 @@ async function connectToDatabase() {
         console.error('MongoDB connection error:', error.message);
     }
 }
-
-app.use(cors())
 
 app.locals.publicDir = publicDir;
 app.use(express.json());

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
+import API_URL from '../../api/posts'
 
 // TODO (student): Implement single-post view and delete flow.
 // Suggested steps:
@@ -23,7 +24,7 @@ function PostPage() {
             setLoading(true);
             setError(null);
 
-            const response = await fetch(`/api/posts/${id}`);
+            const response = await fetch(`${API_URL}/api/posts/${id}`);
             const data = await response.json();
 
             if (!response.ok) {
@@ -49,7 +50,7 @@ function PostPage() {
         setDeleting(true)
         setError(null);
 
-        const response = await fetch(`/api/posts/${id}`, {
+        const response = await fetch(`${API_URL}/api/posts/${id}`, {
             method: "DELETE"
         });
 
@@ -57,7 +58,7 @@ function PostPage() {
             const data = await response.json();
             throw new Error(data.message || "Failed to delete post");
         }
-        navigate("/blog");
+        navigate(`${API_URL}/blog`);
     } catch (err) {
         setError(err.message);
     } finally {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import PostForm from '../components/PostForm.jsx'
+import API_URL from '../../api/posts.js'
 
 // TODO (student): Implement edit flow.
 // Suggested steps:
@@ -24,7 +25,7 @@ function EditPostPage() {
             setLoading(true);
             setError(null)
 
-            const response = await fetch(`/api/posts/${id}`);
+            const response = await fetch(`/${API_URL}api/posts/${id}`);
             const data = await response.json();
 
             if (!response.ok) {
@@ -46,7 +47,7 @@ function EditPostPage() {
         setSubmitting(true)
         setError(null)
 
-        const response = await fetch(`/api/posts/${id}`, {
+        const response = await fetch(`${API_URL}/api/posts/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -60,7 +61,7 @@ function EditPostPage() {
             throw new Error(data.message || "Failed to update post");
         }
 
-        navigate(`/posts/${id}`);
+        navigate(`${API_URL}/posts/${id}`);
     } catch (err) {
         setError(err.message);
     } finally {

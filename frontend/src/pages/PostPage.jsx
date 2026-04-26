@@ -58,7 +58,7 @@ function PostPage() {
             const data = await response.json();
             throw new Error(data.message || "Failed to delete post");
         }
-        navigate(`${API_URL}/blog`);
+        navigate(`/blog`);
     } catch (err) {
         setError(err.message);
     } finally {

@@ -43,7 +43,7 @@ async function connectToDatabase() {
     }
 }
 
-app.use(cors)
+app.use(cors())
 
 app.locals.publicDir = publicDir;
 app.use(express.json());

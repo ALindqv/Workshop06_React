@@ -25,7 +25,7 @@ function EditPostPage() {
             setLoading(true);
             setError(null)
 
-            const response = await fetch(`/${API_URL}api/posts/${id}`);
+            const response = await fetch(`${API_URL}/api/posts/${id}`);
             const data = await response.json();
 
             if (!response.ok) {
@@ -61,7 +61,7 @@ function EditPostPage() {
             throw new Error(data.message || "Failed to update post");
         }
 
-        navigate(`${API_URL}/posts/${id}`);
+        navigate(`/posts/${id}`);
     } catch (err) {
         setError(err.message);
     } finally {

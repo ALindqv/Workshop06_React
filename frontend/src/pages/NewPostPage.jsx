@@ -35,7 +35,7 @@ function NewPostPage() {
         }
 
         const id = data._id || data.id;
-        navigate(`${API_URL}/posts/${id}`);
+        navigate(`/posts/${id}`);
     } catch (err) {
         setError(err.message)
     } finally {
